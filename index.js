@@ -1,10 +1,7 @@
 const express = require('express');
-const LimitingMiddleware = require('limiting-middleware');
 const { randomMinecraft } = require('./handler');
 
 const app = express();
-
-app.use(new LimitingMiddleware().limitByIp());
 
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
